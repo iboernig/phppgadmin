@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Do stuff you need to do before original run script.
+
+sed s/\'\'/\'${DATABASE_SERVICE_NAME}\'/ /opt/app-root/src/conf/config.inc.php-dist > /opt/app-root/src/conf/config.inc.php
+
+# Run the original run script.
+
+exec $S2I_SCRIPTS_PATH/run
